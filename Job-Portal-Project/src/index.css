@@ -1,0 +1,196 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'helvetica neue';
+}
+
+/* --- Header Styles --- */
+.header-container {
+    width: 100%;
+    text-align: center;
+    padding: 60px 20px 40px 20px; /* Generous padding to give it space */
+    background: linear-gradient(135deg, #f0f2f5 0%, #e6e9f0 100%); /* Match the background */
+}
+
+.header-container h1 {
+    font-size: 3.5rem; /* Large, bold heading */
+    font-weight: 700;
+    color: #2c3e50; /* A strong, professional dark blue-grey */
+    margin-bottom: 15px;
+}
+
+.header-container p {
+    font-size: 1.1rem;
+    color: #576c7f; /* A softer, complementary color for the subheading */
+    max-width: 650px; /* Keeps the paragraph from getting too wide on large screens */
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Adjustment for the main content area --- */
+/* This ensures the spacing between the header and cards is perfect. */
+.parent {
+    padding-top: 0;
+}
+
+.parent{
+    min-height: 100vh;
+    width: 100%;
+    /* background-color: black; */ /* We replace the background color with an image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1614850523011-8f49ffc73908?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Makes the background image static on scroll */
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+}
+
+.parent{
+    min-height: 100vh;
+    width: 100%;
+    /* A clean, professional gradient for better contrast */
+    background: linear-gradient(135deg, #f0f2f5 0%, #e6e9f0 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    height: 330px;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.7); /* Increased opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 30px;
+    /* The key change: a soft shadow to create depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+/* Added hover effect for the card */
+.card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Add a subtle glow */
+}
+
+.card .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.top img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #dadada;
+    padding: 2px;
+}
+
+.center{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.center h3 span{
+    font-size: 10px;
+    font-weight: 400;
+    color: #8b8b8b;
+}
+
+.center h2{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.center .tag{
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.center .tag h4{
+    font-size: 10px;
+    background-color: #dadada;
+    color: #111;
+    padding: 4px 8px;
+    font-weight: 500;
+    border-radius: 3px;
+}
+
+.top button{
+    display: flex;
+    align-items: center;
+    border: 1px solid #dadada;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 5px;
+    gap: 3px;
+    background-color: transparent;
+    color: #b1b1b1;
+    cursor: pointer; /* Added cursor pointer */
+    transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Added hover effect for the save button */
+.top button:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+
+.bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1.5px solid #d6d0d0;
+    padding: 10px 0;
+}
+
+.bottom button{
+    /* Replaced black with a modern, professional blue gradient */
+    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+    color: white;
+    padding: 8px 15px; /* Adjusted padding for better balance */
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    /* Added a subtle shadow matching the button color */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.bottom button:hover {
+    /* On hover, the button will lift slightly and the shadow will become more prominent */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.bottom h3{
+    font-size: 17px;
+}
+
+.bottom p{
+    font-size: 10px;
+    color: #8b8b8b;
+}
