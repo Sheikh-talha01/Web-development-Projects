@@ -8,8 +8,6 @@ const Section1 = (props) => {
         <div className='h-screen w-full '>
             <Navbar/>
             <Page1Content users={props.users}/>
-            <LeftContent/>
-            <RightContent users={props.users}/>
         </div>
     )
 }
