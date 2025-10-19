@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* Hide horizontal scrollbar for the card rail */
 #right::-webkit-scrollbar{
     display: none;
 }
+
+/* Animated gradient background for hero/section */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-animated {
+  background: linear-gradient(120deg, #0f172a, #1e293b, #0b1020);
+  background-size: 200% 200%;
+  animation: gradientShift 18s ease-in-out infinite;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .bg-animated { animation: none; }
+}
+
+/* Optional: nicer scrollbar for other scroll areas */
+::-webkit-scrollbar { height: 10px; width: 10px; }
+:::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 9999px; }
+:::-webkit-scrollbar-track { background: transparent; }

@@ -5,7 +5,7 @@ import LeftContent from "./LeftContent.jsx";
 import RightContent from "./RightContent.jsx";
 const Section1 = (props) => {
     return (
-        <div className='h-screen w-full '>
+        <div className='h-screen w-full bg-animated text-white overflow-hidden'>
             <Navbar/>
             <Page1Content users={props.users}/>
         </div>
