@@ -68,27 +68,24 @@ A professional Learning Management System (LMS) built using the MERN stack (Mong
 ## 📸 Screenshots
 
 ### Student Dashboard
-![Student Dashboard](assets/Student_dashboard.jpeg)
+![Student Dashboard](file:///d:/Web-development-Projects/hunarmand_Punjab_final_Project/artifacts/student_dashboard.png)
 
 ### Available Courses
-![Course Listing](assets/course_listing.jpeg)
+![Course Listing](file:///d:/Web-development-Projects/hunarmand_Punjab_final_Project/artifacts/course_listing.png)
 
 ### Enrolled Courses
-![Enrolled Courses](assets/enrolled_courses.jpeg)
+![Enrolled Courses](file:///d:/Web-development-Projects/hunarmand_Punjab_final_Project/artifacts/enrolled_courses.png)
 
 ## 🌐 Free Deployment Guide
 
-### 1. Database (MongoDB Atlas) - RECOMMENDED
-1.  Create a free account at [mongodb.com/atlas](https://www.mongodb.com/cloud/atlas).
-2.  Deploy a free "M0" Cluster.
-3.  Go to **Network Access** -> **Add IP Address** -> **Allow Access From Anywhere**.
-4.  Go to **Database Access** -> **Add New Database User** (remember the password!).
-5.  Click **Connect** -> **Drivers** -> Copy the **Connection String**.
-6.  Paste this string into `backend/.env` replacing the `MONGO_URI` value.
+### Backend (Server & Database)
+1. **Database**: Use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for a free cloud database.
+2. **Hosting**: Deploy the `backend` folder to [Render](https://render.com/) or [Railway](https://railway.app/).
+    - Set environment variables (`MONGO_URI`, `JWT_SECRET`) in the platform settings.
 
 ### Frontend
 1. **Hosting**: Deploy the `frontend` folder to [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
-   - Ensure the `API_URL` in `services/api.js` points to your deployed backend.
+    - Ensure the `API_URL` in `services/api.js` points to your deployed backend.
 
 ## 🔗 GitHub Repository
 You can host your code on GitHub to collaborate and showcase your work:

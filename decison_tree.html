@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Machine Learning Solution Guide</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --accent: #059669;
+            --bg: #fdfdfd;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: var(--secondary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        h1.main-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 15px;
+        }
+
+        .section {
+            margin-bottom: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        h2.section-header {
+            color: var(--primary);
+            font-size: 1.75rem;
+            border-left: 10px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .question-box {
+            background-color: #f1f5f9;
+            border-left: 5px solid #2563eb;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 35px;
+            font-size: 1.3rem;
+        }
+
+        .math-block {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            overflow-x: auto;
+            font-size: 1.1rem;
+        }
+
+        .step-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            background: #ecfdf5;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--accent);
+            margin: 20px 0;
+            color: #065f46;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            color: var(--primary);
+        }
+
+        .final-answer-card {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background: var(--accent);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.4);
+        }
+
+        .formula {
+            color: #b91c1c;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        ul.options-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul.options-list li {
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .correct-opt {
+            background: #d1fae5;
+            border-color: #059669 !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="main-title">Exhaustive Machine Learning Solutions</h1>
+
+    <!-- QUESTION 1.4 -->
+    <div class="section">
+        <h2 class="section-header">1.4 Underfitting and Capacity</h2>
+        <div class="question-box">
+            <strong>Question Statement:</strong> You train a network on 20 samples. Training converges, but training
+            loss is very high. You then train on 10,000 samples. Is your approach to fixing the problem correct? If
+            not, give a solution.
+        </div>
+
+        <p><span class="step-label">Step 1</span> <strong>Diagnosis of Training Behavior</strong><br>
+            A high training loss at convergence indicates that the model is failing to learn the training data
+            itself. This is the definition of <strong>High Bias (Underfitting)</strong>.</p>
+
+        <p><span class="step-label">Step 2</span> <strong>Analyzing the Effect of Data Volume</strong><br>
+            Underfitting occurs when the model's complexity (capacity) is lower than the complexity of the data's
+            underlying patterns. If the model cannot fit a small set of 20 samples, increasing the data volume to
+            10,000 samples will not fix the structural inability of the model to learn. In fact, it often increases
+            the training error as the model now has to fail at fitting many more points.</p>
+
+        <div class="highlight">
+            <strong>Correct Strategy: Increasing Model Capacity</strong><br>
+            Instead of adding more data, you must make the model "smarter" or more complex:
+            <ul>
+                <li>Add more layers (Depth).</li>
+                <li>Add more hidden units/neurons (Width).</li>
+                <li>Reduce regularization (e.g., lower dropout or weight decay).</li>
+                <li>Increase training time (epochs) if convergence was actually an illusion.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- QUESTION 2.1 -->
+    <div class="section">
+        <h2 class="section-header">2.1 Naive Bayes Numerical Derivation</h2>
+        <div class="question-box">
+            <strong>Question Statement:</strong> Given \(P(Y = y) = 1/32\), \(P(x_1 = 1 | Y = y) = y/46\), \(P(x_2 =
+            1 | Y = y) = y/62\). For a test item with \(x_1 = 1\) and \(x_2 = 0\), which class will be produced?
+        </div>
+
+        <h3>Full Derivation:</h3>
+        <p><span class="step-label">Step 1</span> <strong>Naive Bayes Objective Function</strong><br>
+            We choose \(y\) to maximize the joint probability:</p>
+        <div class="math-block">
+            \[P(Y=y, x_1=1, x_2=0) = P(Y=y) \cdot P(x_1=1|Y=y) \cdot P(x_2=0|Y=y)\]
+        </div>
+
+        <p><span class="step-label">Step 2</span> <strong>Identify Conditional Probabilities</strong><br>
+            Note that \(P(x_2=0|Y=y) = 1 - P(x_2=1|Y=y)\). Therefore:</p>
+        <div class="math-block">
+            \[P(x_1=1|Y=y) = \frac{y}{46}\]
+            \[P(x_2=0|Y=y) = 1 - \frac{y}{62} = \frac{62 - y}{62}\]
+        </div>
+
+        <p><span class="step-label">Step 3</span> <strong>Substitute into Objective Function</strong><br>
+            Substitute the given values into the product:</p>
+        <div class="math-block">
+            \[f(y) = \frac{1}{32} \cdot \frac{y}{46} \cdot \frac{62 - y}{62}\]
+        </div>
+
+        <p><span class="step-label">Step 4</span> <strong>Simplication for Optimization</strong><br>
+            Since \(\frac{1}{32 \cdot 46 \cdot 62}\) is a constant positive factor, we only need to maximize the
+            numerator:</p>
+        <div class="math-block">
+            \[g(y) = y \cdot (62 - y) = 62y - y^2\]
+        </div>
+
+        <p><span class="step-label">Step 5</span> <strong>Finding the Maximum (Algebraic Method)</strong><br>
+            The function is a downward parabola with roots at \(y=0\) and \(y=62\). The vertex (maximum point) is
+            always at the midpoint of the roots:</p>
+        <div class="math-block">
+            \[y_{max} = \frac{0 + 62}{2} = 31\]
+        </div>
+
+        <div class="final-answer-card">Final Answer: 31 (Option c)</div>
+    </div>
+
+    <!-- QUESTION 2.2 -->
+    <div class="section">
+        <h2 class="section-header">2.2 Decision Boundary Numerical Plotting</h2>
+        <div class="question-box">
+            <strong>Question Statement:</strong> Decision rule: Predict \(Y=1\) if \(3X_1 + 5X_2 - 15 \ge 0\). Plot
+            the boundary and regions.
+        </div>
+
+        <h3>Full Calculation:</h3>
+        <p><span class="step-label">Step 1</span> <strong>Define the Line</strong><br>
+            The boundary occurs at the threshold where the inequality becomes an equality:</p>
+        <div class="math-block">\[3X_1 + 5X_2 - 15 = 0\]</div>
+
+        <p><span class="step-label">Step 2</span> <strong>Find \(X_1\)-axis Intercept</strong><br>
+            Set \(X_2 = 0\):</p>
+        <div class="math-block">
+            \[3X_1 + 5(0) - 15 = 0\]
+            \[3X_1 = 15 \implies X_1 = 5\]
+            \[\mathbf{Point \ 1: (5, 0)}\]
+        </div>
+
+        <p><span class="step-label">Step 3</span> <strong>Find \(X_2\)-axis Intercept</strong><br>
+            Set \(X_1 = 0\):</p>
+        <div class="math-block">
+            \[3(0) + 5X_2 - 15 = 0\]
+            \[5X_2 = 15 \implies X_2 = 3\]
+            \[\mathbf{Point \ 2: (0, 3)}\]
+        </div>
+
+        <p><span class="step-label">Step 4</span> <strong>Region Classification Test</strong><br>
+            Test origin \((0,0)\): \(3(0) + 5(0) - 15 = -15\). Since \(-15 < 0\), the region containing the origin
+            is \(Y=0\). The opposite side is \(Y=1\).</p>
+
+        <svg width="400" height="250" viewBox="0 0 400 250"
+             style="display: block; margin: 40px auto; background: white; border: 1px solid #ddd;">
+            <!-- Regions -->
+            <polygon points="40,90 340,210 340,40 40,40" fill="#ecfdf5" /> <!-- Y=1 -->
+            <polygon points="40,90 340,210 40,210" fill="#fef2f2" /> <!-- Y=0 -->
+
+            <!-- Axes -->
+            <line x1="40" y1="210" x2="380" y2="210" stroke="#000" stroke-width="2" /> <!-- X1 -->
+            <line x1="40" y1="210" x2="40" y2="20" stroke="#000" stroke-width="2" /> <!-- X2 -->
+
+            <!-- Line -->
+            <line x1="40" y1="90" x2="340" y2="210" stroke="#2563eb" stroke-width="4" />
+
+            <!-- Markers -->
+            <circle cx="40" cy="90" r="5" fill="#000" /> <text x="10" y="95">(0,3)</text>
+            <circle cx="340" cy="210" r="5" fill="#000" /> <text x="330" y="235">(5,0)</text>
+
+            <text x="200" y="70" fill="#059669" font-weight="bold" font-size="1.2rem">Predict Y=1</text>
+            <text x="80" y="180" fill="#b91c1c" font-weight="bold" font-size="1.2rem">Predict Y=0</text>
+        </svg>
+    </div>
+
+    <!-- QUESTION 3.1 & 3.2 -->
+    <div class="section">
+        <h2 class="section-header">3.1 & 3.2 Conceptual Quiz</h2>
+
+        <div class="question-box">
+            <strong>Q3.1:</strong> Which is FALSE about decision trees?<br>
+            <ul class="options-list">
+                <li>(a) Don't require separate training phase.</li>
+                <li>(b) Depth increases variance/overfitting.</li>
+                <li class="correct-opt">(c) Shallow trees have high variance and low bias. (FALSE)</li>
+                <li>(d) Recursive splitting reduces impurity.</li>
+            </ul>
+            <p><strong>Explanation:</strong> Shallow trees are simplified models. They have <strong>Low
+                Variance</strong> (they don't change much with different data) and <strong>High Bias</strong>
+                (they are too simple to fit reality).</p>
+        </div>
+
+        <div class="question-box">
+            <strong>Q3.2:</strong> Distinguish classification vs regression trees.<br>
+            <ul class="options-list">
+                <li class="correct-opt">(b) Classification uses categorical labels (Gini/Impurity), Regression uses
+                    continuous values (Variance/MSE).</li>
+            </ul>
+            <p><strong>Why (c) is wrong?</strong> Regression trees can output any real number (continuous), not just
+                binary values. The term "binary continuous" is an oxymoron.</p>
+        </div>
+    </div>
+
+    <!-- QUESTION 3.3 EXHAUSTIVE NUMERICAL -->
+    <div class="section">
+        <h2 class="section-header">3.3 Regression Tree Complete Derivation</h2>
+        <div class="question-box">
+            <strong>Question Statement:</strong> Predict Price using Size \(\le\) 1800 or Floors \(\le\) 2.
+            Calculate Reduction in Variance.
+        </div>
+
+        <h3>Step 1: Calculate Root Mean (\(\mu\)) and Root Variance (\(\sigma^2\))</h3>
+        <p>Data: \(P = \{120, 130, 150, 160, 180, 300\}\), \(n=6\)</p>
+        <div class="math-block">
+            \[\mu_{Root} = \frac{120+130+150+160+180+300}{6} = \frac{1040}{6} = \mathbf{173.33}\]
+            \[\sigma^2_{Root} = \frac{(120-173.3)^2 + (130-173.3)^2 + (150-173.3)^2 + (160-173.3)^2 + (180-173.3)^2
+            + (300-173.3)^2}{6}\]
+            \[\sigma^2_{Root} = \frac{2844.44 + 1877.78 + 544.44 + 177.78 + 44.44 + 16044.44}{6} =
+            \frac{21533.34}{6} = \mathbf{3588.89}\]
+        </div>
+
+        <h3>Step 2: Evaluate Split A (Size \(\le\) 1800)</h3>
+        <p><strong>Left Node (Size \(\le\) 1800):</strong> {120, 130, 150, 160}, \(n_L=4\)</p>
+        <div class="math-block">
+            \[\mu_L = \frac{560}{4} = 140\]
+            \[\sigma^2_L = \frac{(120-140)^2 + (130-140)^2 + (150-140)^2 + (160-140)^2}{4} =
+            \frac{400+100+100+400}{4} = \mathbf{250}\]
+        </div>
+        <p><strong>Right Node (Size > 1800):</strong> {180, 300}, \(n_R=2\)</p>
+        <div class="math-block">
+            \[\mu_R = \frac{480}{2} = 240\]
+            \[\sigma^2_R = \frac{(180-240)^2 + (300-240)^2}{2} = \frac{3600+3600}{2} = \mathbf{3600}\]
+        </div>
+        <p><strong>Split A Summary:</strong></p>
+        <div class="highlight">
+            Weighted Variance = \(\frac{4}{6}(250) + \frac{2}{6}(3600) = 166.67 + 1200 = 1366.67\)<br>
+            Variance Reduction (A) = \(3588.89 - 1366.67 = \mathbf{2222.22}\)
+        </div>
+
+        <h3>Step 3: Evaluate Split B (Floors \(\le\) 2)</h3>
+        <p><strong>Left Node (Floors \(\le\) 2):</strong> {120, 150, 160, 300}, \(n_L=4\)</p>
+        <div class="math-block">
+            \(\mu_L = \frac{120+150+160+300}{4} = \frac{730}{4} = \mathbf{182.5}\)<br>
+            \(\sigma^2_L = \frac{(120-182.5)^2 + (150-182.5)^2 + (160-182.5)^2 + (300-182.5)^2}{4} = \frac{3906.25 +
+            1056.25 + 506.25 + 13806.25}{4} = \mathbf{4818.75}\)
+        </div>
+        <p><strong>Right Node (Floors > 2):</strong> {130, 180}, \(n_R=2\)</p>
+        <div class="math-block">
+            \(\mu_R = \frac{130+180}{2} = \mathbf{155}\)<br>
+            \(\sigma^2_R = \frac{(130-155)^2 + (180-155)^2}{2} = \frac{625+625}{2} = \mathbf{625}\)
+        </div>
+        <p><strong>Split B Summary:</strong></p>
+        <div class="highlight">
+            Weighted Variance = \(\frac{4}{6}(4818.75) + \frac{2}{6}(625) = 3212.5 + 208.33 = 3420.83\)<br>
+            Variance Reduction (B) = \(3588.89 - 3420.83 = \mathbf{168.06}\)
+        </div>
+
+        <div class="final-answer-card">Best Split: Size \(\le\) 1800 (VR = 2222.22)</div>
+    </div>
+</div>
+</body>
+
+</html>

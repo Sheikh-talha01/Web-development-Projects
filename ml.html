@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naive Bayes Solution (Simplified)</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            font-size: 1.4em;
+        }
+
+        .solution-step {
+            margin-bottom: 20px;
+        }
+
+        .final-answer {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #27ae60;
+            background: #eafaf1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            border: 2px solid #27ae60;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Naive Bayes Solution (Algebraic Method)</h1>
+
+    <h2>1. The Goal</h2>
+    <p>We want to find the class \(y\) that makes the following most likely, given \(x_1=1\) and \(x_2=0\):</p>
+    <div class="math-block">
+        \[\text{Probability} \propto P(Y=y) \cdot P(x_1=1|Y=y) \cdot P(x_2=0|Y=y)\]
+    </div>
+
+    <h2>2. Plug in the Numbers</h2>
+    <ul>
+        <li>\(P(Y=y) = \frac{1}{32}\)</li>
+        <li>\(P(x_1=1|Y=y) = \frac{y}{46}\)</li>
+        <li>\(P(x_2=0|Y=y) = 1 - \frac{y}{62}\)</li>
+    </ul>
+    <p>Combining these (and ignoring the constants \(\frac{1}{32}\) and \(\frac{1}{46}\)):</p>
+    <div class="math-block">
+        \[\text{Score} = y \cdot \left(1 - \frac{y}{62}\right) = y \cdot \left(\frac{62 - y}{62}\right)\]
+    </div>
+
+    <h2>3. Simplified Expression</h2>
+    <p>Since we just want to find the best \(y\), we can ignore the \(\frac{1}{62}\) as well. We just need to maximize:</p>
+    <div class="math-block">
+        \[g(y) = y \cdot (62 - y)\]
+    </div>
+
+    <h2>4. The "Middle Point" Logic (No Calculus)</h2>
+    <p>The expression \(y \cdot (62 - y)\) represents a <strong>parabola</strong> that opens downwards.</p>
+    <ul>
+        <li>It hits zero at \(y = 0\).</li>
+        <li>It hits zero at \(y = 62\).</li>
+    </ul>
+    <p>Because parabolas are perfectly <strong>symmetric</strong>, the highest peak (maximum) must be exactly in the middle of these two zeros:</p>
+    <div class="math-block">
+        \[\text{Peak} = \frac{0 + 62}{2} = 31\]
+    </div>
+
+    <div class="final-answer">
+        Conclusion: The most likely class is <strong>31</strong>.<br>
+        Correct Option: <strong>c) 31</strong>
+    </div>
+</div>
+</body>
+</html>
